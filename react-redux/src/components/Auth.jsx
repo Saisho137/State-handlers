@@ -6,7 +6,7 @@ const Auth = () => {
     const dispatch = useDispatch();
 
     const handleLogin = () => {
-        dispatch(login({ id: 1, name: 'John Doe' }));
+        dispatch(login({ id: 1, name: 'Santiago Betancur' }));
     };
 
     const handleLogout = () => {
@@ -14,7 +14,7 @@ const Auth = () => {
     };
 
     return (
-        <div>
+        <section style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             {isLoggedIn ? (
                 <div>
                     <p>Bienvenido, {user.name}</p>
@@ -23,7 +23,7 @@ const Auth = () => {
             ) : (
                 <button onClick={handleLogin}>Iniciar Sesión</button>
             )}
-        </div>
+        </section>
     );
 };
 

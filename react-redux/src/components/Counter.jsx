@@ -1,17 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement, incrementByAmount } from '../redux/counterSlice';
+import { reset, increment, decrement, incrementByAmount, decrementByAmount } from '../redux/counterSlice';
 
 const Counter = () => {
     const count = useSelector((state) => state.counter.value);
     const dispatch = useDispatch();
 
     return (
-        <div>
-            <h1>{count}</h1>
-            <button onClick={() => dispatch(increment())}>Increment</button>
-            <button onClick={() => dispatch(decrement())}>Decrement</button>
-            <button onClick={() => dispatch(incrementByAmount(2))}>Increment by 2</button>
-        </div>
+        <section style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h3>{count}</h3>
+            <div style={{ display: 'flex', flexDirection: 'row' , gap: '5px'}}>
+                <button onClick={() => dispatch(reset())}>Reset</button>
+                <button onClick={() => dispatch(increment())}>Increment</button>
+                <button onClick={() => dispatch(decrement())}>Decrement</button>
+                <button onClick={() => dispatch(incrementByAmount(2))}>Increment by 2</button>
+                <button onClick={() => dispatch(decrementByAmount(3))}>Decrement by 3</button>
+            </div>
+        </section>
     );
 };
 
