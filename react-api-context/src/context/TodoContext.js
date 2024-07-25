@@ -2,6 +2,8 @@ import { createContext, useState, useContext } from 'react';
 
 const TodoContext = createContext();
 
+
+// USar auth para mostrar
 export const TodoProvider = ({ children }) => {
     const [todos, setTodos] = useState([]);
 
