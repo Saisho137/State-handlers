@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './store/counter/counter.reducer';
 import { CounterComponent } from './components/molecules/counter/counter.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [];
 
@@ -13,6 +14,7 @@ const routes: Routes = [];
   declarations: [AppComponent, CounterComponent],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot({ counter: counterReducer }),
   ],

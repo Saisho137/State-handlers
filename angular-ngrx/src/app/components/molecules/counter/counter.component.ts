@@ -9,6 +9,8 @@ import {
   increment,
   decrement,
   reset,
+  incrementByAmount,
+  decrementtByAmount,
 } from '@/app/store/counter/counter.actions';
 
 @Component({
@@ -17,6 +19,7 @@ import {
   styleUrls: ['./counter.component.scss'],
 })
 export class CounterComponent {
+  actionsValue: number = 1;
   count$: Observable<number>;
   duplicatedCount$: Observable<number>;
 
@@ -29,8 +32,16 @@ export class CounterComponent {
     this.store.dispatch(increment());
   }
 
+  incrementByAmount() {
+    this.store.dispatch(incrementByAmount({ value: this.actionsValue }));
+  }
+
   decrement() {
     this.store.dispatch(decrement());
+  }
+
+  decrementByAmount() {
+    this.store.dispatch(decrementtByAmount({ value: this.actionsValue }));
   }
 
   reset() {
