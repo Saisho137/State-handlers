@@ -9,16 +9,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { todoReducer } from './store/todo/todo.reducer';
 import { TodoComponent } from './components/molecules/todo/todo.component';
+import { authReducer } from './store/auth/auth.reducer';
+import { AuthComponent } from './components/molecules/auth/auth.component';
 
 const routes: Routes = [];
 
 @NgModule({
-  declarations: [AppComponent, CounterComponent, TodoComponent],
+  declarations: [AppComponent, CounterComponent, TodoComponent, AuthComponent],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    StoreModule.forRoot({ counter: counterReducer, todos: todoReducer }),
+    StoreModule.forRoot({
+      auth: authReducer,
+      counter: counterReducer,
+      todos: todoReducer,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,23 @@
-<h1>{{title}}</h1>
-<h2>Counter:</h2>
-<app-counter />
-<h2>Todo:</h2>
-<app-todo />
-<router-outlet></router-outlet>
+<main style="display: grid; place-content: center;text-align: center;">
+  <h1>{{title}}</h1>
+
+  <h2>Auth:</h2>
+  <app-auth />
+
+  <section *ngIf="user$ | async as user; else loggedOut" style="display: grid; grid-template-columns: 1fr 1fr;">
+    <div>
+      <h2>Todo:</h2>
+      <app-todo />
+    </div>
+    <div>
+      <h2>Counter:</h2>
+      <app-counter />
+    </div>
+  </section>
+
+  <ng-template #loggedOut>
+    <h2>Debes iniciar sesión para acceder al TODO</h2>
+  </ng-template>
+
+  <router-outlet></router-outlet>
+</main>
