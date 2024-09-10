@@ -1,10 +1,10 @@
-<main style="display: grid; place-content: center;text-align: center;">
+<main style="display: grid; place-content: center;text-align: center;padding: 2rem;background-color: darkolivegreen;color: white;">
   <h1>{{title}}</h1>
 
   <h2>Auth:</h2>
   <app-auth />
 
-  <section *ngIf="user$ | async as user; else loggedOut" style="display: grid; grid-template-columns: 1fr 1fr;">
+  <section *ngIf="user$ | async as user; else loggedOut" style="display: grid; grid-template-columns: 1fr 1fr;justify-content: space-around;">
     <div>
       <h2>Todo:</h2>
       <app-todo />

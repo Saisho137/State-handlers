@@ -6,9 +6,9 @@
     <button type="submit">Agregar tarea</button>
   </form>
 
-  <div style="display: flex;flex-direction: column;text-align:center; align-items: center">
-    <h2>Lista de tarea</h2>
-
+  <h2>Lista de tareas</h2>
+  <div *ngIf="(todos$ | async)?.length"
+    style="display: flex;flex-direction: column;text-align:center; align-items: center">
     <label for="filter">Mostrar:
       <select id="filter" [(ngModel)]="filter" (change)="changeFilter(filter)">
         <option value="all">Todos los TODOs</option>
@@ -16,15 +16,16 @@
         <option value="completed">TODOs Completados</option>
       </select>
     </label>
+
+    <ul>
+      <li *ngFor="let todo of todos$ | async">
+        <span [style.textDecoration]="todo.completed ? 'line-through' : 'none'">
+          {{ todo.task }}
+        </span>
+        <button (click)="toggleTodo(todo.id)">Toggle</button>
+        <button (click)="removeTodo(todo.id)">Eliminar</button>
+      </li>
+    </ul>
   </div>
 
-  <ul>
-    <li *ngFor="let todo of todos$ | async">
-      <span [style.textDecoration]="todo.completed ? 'line-through' : 'none'">
-        {{ todo.task }}
-      </span>
-      <button (click)="toggleTodo(todo.id)">Toggle</button>
-      <button (click)="removeTodo(todo.id)">Eliminar</button>
-    </li>
-  </ul>
 </section>

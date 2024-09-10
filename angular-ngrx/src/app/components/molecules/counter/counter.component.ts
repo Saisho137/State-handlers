@@ -22,6 +22,7 @@ export class CounterComponent {
   actionsValue: number = 1;
   count$: Observable<number>;
   duplicatedCount$: Observable<number>;
+  modifyCounterModal: boolean = false;
 
   constructor(private store: Store) {
     this.count$ = this.store.select(selectCurrentCount);
@@ -46,5 +47,9 @@ export class CounterComponent {
 
   reset() {
     this.store.dispatch(reset());
+  }
+
+  toggleModal() {
+    this.modifyCounterModal = !this.modifyCounterModal;
   }
 }
