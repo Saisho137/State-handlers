@@ -1,0 +1,11 @@
+<section style="text-align:center">
+  <h2>Contador con NgRx</h2>
+  <h2>{{ count$ | async }}</h2>
+
+  <h2>Valor de la cuenta</h2>
+  <h2>{{ duplicatedCount$ | async | currency }}</h2>
+
+  <button (click)="increment()">Incrementar</button>
+  <button (click)="decrement()">Decrementar</button>
+  <button (click)="reset()">Resetear</button>
+</section>
