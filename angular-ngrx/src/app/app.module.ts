@@ -11,6 +11,8 @@ import { todoReducer } from './store/todo/todo.reducer';
 import { TodoComponent } from './components/molecules/todo/todo.component';
 import { authReducer } from './store/auth/auth.reducer';
 import { AuthComponent } from './components/molecules/auth/auth.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './store/auth/auth.effects';
 
 const routes: Routes = [];
 
@@ -25,6 +27,7 @@ const routes: Routes = [];
       counter: counterReducer,
       todos: todoReducer,
     }),
+    EffectsModule.forRoot([AuthEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
